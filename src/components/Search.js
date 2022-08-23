@@ -29,7 +29,7 @@ class Search extends React.Component{
     } else{
       this.setState({missing:false});
     }
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&appid=${apiKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&appid=${apiKey}&units=metric`)
       .then(res => res.json())
       .then(data => {
         if(data.cod==200){
