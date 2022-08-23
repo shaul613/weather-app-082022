@@ -75,7 +75,7 @@ class Search extends React.Component{
         {
           this.state.missing ? <p className='error'>Fields cannot be blank</p> :
           this.state.clicked ? this.showData() :
-          this.state.hasError ? <p className='error'>{this.state.error}</p> : null
+          this.state.hasError ? <p className='error'>Error</p> : null
         }
       </div>
       </>
