@@ -12,6 +12,7 @@ class Search extends React.Component{
       clicked:false,
       hasError:false,
       missing:false,
+      error:'',
     }
   }
 
@@ -35,12 +36,13 @@ class Search extends React.Component{
           console.log(data);
           this.setState({data, clicked:true, hasError:false});
         } else{
-          this.setState({hasError:true})
+          this.setState({hasError:true, error:'something went wrong'});
           console.log('something went wrong');
         }
       })
       .catch(e => {
         console.log(e);
+        this.setState({error:e, hasError:true})
       })
   }
 
@@ -73,7 +75,7 @@ class Search extends React.Component{
         {
           this.state.missing ? <p className='error'>Fields cannot be blank</p> :
           this.state.clicked ? this.showData() :
-          this.state.hasError ? <p className='error'>Something went wrong</p> : null
+          this.state.hasError ? <p className='error'>{this.state.error}</p> : null
         }
       </div>
       </>
