@@ -29,7 +29,7 @@ class Search extends React.Component{
     } else{
       this.setState({missing:false});
     }
-    fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&appid=${apiKey}&units=metric`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&appid=${apiKey}&units=metric`)
       .then(res => res.json())
       .then(data => {
         if(data.cod==200){
